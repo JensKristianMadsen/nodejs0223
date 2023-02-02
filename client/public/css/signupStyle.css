@@ -1,0 +1,51 @@
+
+body {
+    background-color: lightblue;
+  }
+  h1 {
+    color: navy;
+    margin-left: 20px;
+  }
+ table {
+  border-collapse: collapse;
+  width: 18%;
+  
+}
+.table{
+  width: 50%;
+}
+
+
+.td-delete{
+  width: 1%;
+}
+td-update{
+  width: 1%;
+}
+
+.deleteBtn{
+  width: 1%;
+}
+
+ td {
+
+  padding: 1px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+ th {
+  width: 6%;
+  
+ }
+
+ .th-DriverName{
+
+  width: 10%;
+ }
+
+.th-BestLabTime{
+  width: 7%;
+
+}
+
