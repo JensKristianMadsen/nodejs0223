@@ -87,7 +87,7 @@ app.get("/update_gokart/:id", (req, res) => {
 
 
 
-
+/*
 const server = http.createServer(app);
 const io = new Server(server);
 
@@ -104,12 +104,10 @@ app.get('/gokart_list', (req, res) => {
   server.listen(3000, () => {
     console.log('listening on *:3000');
   });
+*/
 
 
-/*
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log("The server is running on port:", PORT)
 });
-*/
-//2023

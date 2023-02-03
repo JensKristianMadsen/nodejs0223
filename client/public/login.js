@@ -15,7 +15,7 @@ async function login(){
     if(result.message){
         alert(result.message)
     }else{
-        window.location="/";
+        window.location="/gokart_list";
     }
     
 }

@@ -32,8 +32,8 @@ async function seeAll(){
                 <td>${best_lab_time}</td>
                 <td>${total_time}</td>
                 <td>${pitstops}</td>
-                <td class="td-update" > <a href="/update_gokart/${id}"> <button  class="btn btn-primary" type="button">UPDATE </button> </a></td>
-                <td class="td-delete" > <button onclick="deleteGokart(${id})" class="btn btn-primary" type="button">DELETE </button></td>
+                <td class="td-update" > <a href="/update_gokart/${id}"> <button  class="btn btn-primary btn-sm" type="button">UPDATE </button> </a></td>
+                <td class="td-delete" > <button onclick="deleteGokart(${id})" class="btn btn-primary btn-sm" type="button">DELETE </button></td>
             </tr>`
         });
         
@@ -86,7 +86,7 @@ async function deleteGokart(id){
 
 }
 
-
+/*
 
 const socket = io("ws://localhost:3000");
 
@@ -94,3 +94,4 @@ socket.on("update from server", () => {
     seeAll();
 });
 
+*/

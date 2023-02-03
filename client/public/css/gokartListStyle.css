@@ -1,0 +1,12 @@
+.ratio > * {
+  position: absolute;
+  top: 0;
+  left: -179px;
+  width: 159%;
+  height: 5%;
+}
+
+ table{
+  width: 159%;
+}
+

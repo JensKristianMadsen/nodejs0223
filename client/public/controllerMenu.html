@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custum-style.css">
     <link rel="stylesheet" href="css/indexStyle.css">
     <title>Document</title>
 </head>
@@ -59,7 +60,7 @@
     <section class="video">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
-          <div class="ratio ratio-16x9" ;>
+          <div class="ratio ratio-16x9" margin-right: 10%;>
             <iframe
               class="shadow-1-strong rounded"
         
@@ -87,6 +88,65 @@
 <footer>
   <p>Footer</p>
 </footer>
+
+
+
+</body>
+</html>
+
+
+
+
+//////////////////////////////////////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custum-style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="/logout.js" ></script>
+
+
+<!--Navbar-->
+  
+
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+    
+<!--Navbar-->
+
+    <h1> Welcome index.html</h1>
+    <table>
+        <tr>
+            <td><a href="/signup"> <button>Signup </button></a></td>
+            
+            <td><a href="/login"> <button>Login </button></a></td>
+
+            <td><a href="/create_gokart"> <button>Create Gokart </button></a></td>
+
+            <td><a href="/gokart_list"> <button>Gokart List </button></a></td>
+
+            <td> <button onclick="logout()">Logout </button></td>
+        </tr>
+
+    </table>
 
 
 

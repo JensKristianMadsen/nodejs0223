@@ -19,7 +19,7 @@ async function createGokart(){
     
     if(response.status == 201){
         
-        window.location = "/";
+        window.location = "/gokart_list";
     }
 
 }
