@@ -39,16 +39,28 @@
        
 
         <li class="nav-item">
-            <a class="nav-link" onclick="logout()" type="button" id="reset">Logout</a>
+            <a class="nav-link" onclick="logout()" type="button" >Logout</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" onclick="seeAll()" type="button" id="reset">See All</a>
+            <a class="nav-link" onclick="seeAll()" type="button" >See All</a>
           </li>
 
         <li class="nav-item">
-            <a class="nav-link" onclick="top5TotalTime()" type="button" id="reset">See Top 5 (Total Time)</a>
+            <a class="nav-link" onclick="top5TotalTime()" type="button" >See Top 5 (Total Time)</a>
           
+        </li>
+
+        <li class="nav-item">
+
+         <input id="search_input" />
+        
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" onclick="searchDriverName()" type="button" >Search Driver Name</a>
+        
         </li>
 
         <li class="nav-item">
@@ -114,6 +126,12 @@
   <p>Footer</p>
 </footer>
 
+<div id="wrap">
+  <div id="main" class="container clear-top">
+    <p>Your content here</p>
+  </div>
+</div>
+<footer class="footer"></footer>
 
 
 </body>

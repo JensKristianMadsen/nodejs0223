@@ -73,15 +73,28 @@ app.get("/", (req, res) => {
 //Gokart
 
 app.get("/create_gokart", (req, res) => {
+
+    if(!req.session.user){
+        return res.redirect("/login");
+    }
+
     res.sendFile(path.resolve("../client/public/createGokart.html"))
+
 });
 
 app.get("/gokart_list", (req, res) => {
+
+    if(!req.session.user){
+        return res.redirect("/login");
+    }
     res.sendFile(path.resolve("../client/public/gokartList.html"))
 });
 
 app.get("/update_gokart/:id", (req, res) => {
-    console.log(req.params.id);
+
+    if(!req.session.user){
+        return res.redirect("/login");
+    }
     res.sendFile(path.resolve("../client/public/updateGokart.html"))
 });
 

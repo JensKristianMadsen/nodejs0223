@@ -14,12 +14,18 @@ async function createGokart(){
 
     const result = await response.json();
 
-    alert(result.message);
+   
 
     
     if(response.status == 201){
-        
+        alert(result.message);
         window.location = "/gokart_list";
-    }
+    }else if(result.message == "Failed: Must be logged in"){
+        alert(result.message);
+        window.location="/login";
+   }else{
+       alert(result.message);
+       
+   }
 
 }

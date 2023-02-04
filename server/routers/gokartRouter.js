@@ -8,6 +8,10 @@ router.use(express.json());
 
 router.post("/api/gokart" , (req, res) => {
 
+    if(!req.session.user){
+        return res.status(500).send({message: "Failed: Must be logged in"})
+    }
+
     const {driver, age, cc, bestLabTime, totalTime, pitstops} = req.body;
 
     const sqlQuery = "INSERT INTO gokarts (driver, age, cc, best_lab_time, total_time, pitstops) VALUES (?, ?, ?, ?, ?, ?)";
@@ -25,7 +29,13 @@ router.post("/api/gokart" , (req, res) => {
 
 
 router.get("/api/gokart" , (req, res) => {
+
+    if(!req.session.user){
+        return res.status(500).send({message: "Failed: Must be logged in"})
+    }
+
     const sqlQuery = "SELECT * FROM gokarts";
+
     db.query(sqlQuery,[], (error, result) => {
 
         const gokarts = [...result];
@@ -42,8 +52,15 @@ router.get("/api/gokart" , (req, res) => {
 
 // Get one gokart by id
 router.get("/api/one_gokart/:id", (req, res) => {
+
+    if(!req.session.user){
+        return res.status(500).send({message: "Failed: Must be logged in"})
+    }
+
     const {id} = req.params;
+
     const sqlQuery = "SELECT * FROM gokarts WHERE id=?";
+
     db.query(sqlQuery,[id], (error, result) => {
 
         
@@ -63,8 +80,14 @@ router.get("/api/one_gokart/:id", (req, res) => {
 
 router.put("/api/gokart", (req, res) => {
     
+    if(!req.session.user){
+        return res.status(500).send({message: "Failed: Must be logged in"})
+    }
+
     const {id, driver, age, cc, bestLabTime, totalTime, pitstops} = req.body;
+
     const sqlQuery = "UPDATE gokarts SET  driver=?, age=?, cc=?, best_lab_time=?, total_time=?, pitstops=? WHERE id=?";
+
     db.query(sqlQuery,[driver, age, cc, bestLabTime, totalTime, pitstops, id], (error, result) => {
 
         if(error){
@@ -79,8 +102,15 @@ router.put("/api/gokart", (req, res) => {
 
 
 router.delete("/api/gokart/:id", (req, res) => {
+
+    if(!req.session.user){
+        return res.status(500).send({message: "Failed: Must be logged in"})
+    }
+
     const {id} = req.params;
+
     const sqlQuery = "DELETE FROM gokarts WHERE id=?";
+     
     db.query(sqlQuery,[id], (error, result) => {
 
         if(error){

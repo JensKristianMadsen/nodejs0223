@@ -52,8 +52,13 @@ async function updateGokart(){
     if(response.status == 200){
         alert(result.message);
         window.location = "/gokart_list";
-    }else{
+        
+    }else if(result.message == "Failed: Must be logged in"){
         alert(result.message);
-    }
+        window.location="/login";
+   }else{
+       alert(result.message);
+       
+   }
 
 }
