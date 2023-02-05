@@ -17,7 +17,7 @@
   table {
     float: left;
     width: 30%;
-    height: 300px; /* only for demonstration, should be removed */
+    height: 300px; 
     background: #f4f4f4;
     padding: 20px;
 }
@@ -34,4 +34,3 @@
   .p-4 {
     padding: 0.5rem !important;
   }
-  
