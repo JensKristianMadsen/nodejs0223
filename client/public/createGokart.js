@@ -1,3 +1,5 @@
+const socket = io();
+
 async function createGokart(){
     const driver = document.getElementById("driver_input").value;
     const age = document.getElementById("age_input").value;
@@ -18,8 +20,13 @@ async function createGokart(){
 
     
     if(response.status == 201){
+
         alert(result.message);
+
+        socket.emit("update_from_client");
+
         window.location = "/gokart_list";
+
     }else if(result.message == "Failed: Must be logged in"){
         alert(result.message);
         window.location="/login";

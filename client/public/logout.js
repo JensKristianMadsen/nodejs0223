@@ -16,16 +16,16 @@ async function  logout(){
     
     const response = await fetch("/api/logout");
 
-    const message = await response.text();
+    const result = await response.json();
 
   //  alert(message);
    
 
 
-    if(message == "Logout failed: Must be logged in"){
-         alert(message);
+    if(result.message == "Logout failed: Must be logged in"){
+         alert(result.message);
     }else{
-        alert(message);
+        alert(result.message);
         window.location="/";
     }
     

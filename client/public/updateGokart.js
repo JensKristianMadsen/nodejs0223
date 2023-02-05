@@ -1,10 +1,11 @@
+const socket = io();
+
 getGokart();
 
 async function getGokart(){
 
     const path = window.location.pathname;
     const id = path.split("/").slice(-1)[0];
-    console.log(id);
 
     const response = await fetch("/api/one_gokart/"+id);
 
@@ -51,6 +52,7 @@ async function updateGokart(){
 
     if(response.status == 200){
         alert(result.message);
+        socket.emit("update_from_client");
         window.location = "/gokart_list";
         
     }else if(result.message == "Failed: Must be logged in"){

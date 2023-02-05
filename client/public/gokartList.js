@@ -1,13 +1,12 @@
-let gokarts;
+const socket = io();
 
+let gokarts;
 
 seeAll();
 
 async function seeAll(){
 
-    const response = await fetch("/api/gokart", {
-        credentials: 'include'
-    });
+    const response = await fetch("/api/gokart");
 
     const result = await response.json();
 
@@ -85,9 +84,7 @@ function searchDriverName(){
         const lowerCaseName = gokart.driver.toLowerCase();
 
         return lowerCaseName.includes(searchInput);
-    })
-
-    console.log(searchResult)
+    });
 
     const gokartTable = document.getElementById("gokart_table");
 
@@ -114,12 +111,13 @@ async function deleteGokart(id){
 
     const response = await fetch("/api/gokart/"+id, {
         method: "DELETE"
-    })
+    });
 
     const result = await response.json();
 
     if(response.status == 200){
         alert(result.message);
+        socket.emit("update_from_client");
         seeAll();
     }else if(result.message == "Failed: Must be logged in"){
         alert(result.message);
@@ -131,12 +129,8 @@ async function deleteGokart(id){
 
 }
 
-/*
-
-const socket = io("ws://localhost:3000");
-
-socket.on("update from server", () => {
+socket.on("update_from_server", () => {
+    alert("Update from other user");
     seeAll();
 });
 
-*/

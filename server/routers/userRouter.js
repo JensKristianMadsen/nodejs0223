@@ -73,7 +73,7 @@ router.post("/api/login", (req, res) => {
 router.get("/api/logout", (req, res) => {
     if(!req.session.user) return res.status(400).send("Logout failed: Must be logged in");
     delete req.session.user;
-    res.status(200).send("Logout succeded");
+    res.status(200).send({message: "Logout succeded"});
 });
 
 

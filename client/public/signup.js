@@ -15,6 +15,7 @@ async function signup(){
         method: "POST",
         body: JSON.stringify({username, email, password})
     });
+  
 
     const result = await response.json();
 
