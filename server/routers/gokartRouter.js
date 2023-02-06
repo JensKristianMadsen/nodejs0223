@@ -5,7 +5,7 @@ const router = express.Router();
 router.use(express.json());
 
 // POST
-router.post("/api/gokart" , (req, res) => {
+router.post("/api/gokart", (req, res) => {
 
     if(!req.session.user){
 
@@ -78,14 +78,16 @@ router.get("/api/one_gokart/:id", (req, res) => {
 });
 
 // Update 
-router.put("/api/gokart", (req, res) => {
+router.put("/api/gokart/:id", (req, res) => {
     
     if(!req.session.user){
 
         return res.status(500).send({message: "Failed: Must be logged in"});
     }
 
-    const {id, driver, age, cc, bestLabTime, totalTime, pitstops} = req.body;
+    const {id} = req.params;
+
+    const {driver, age, cc, bestLabTime, totalTime, pitstops} = req.body;
 
     const sqlQuery = "UPDATE gokarts SET  driver=?, age=?, cc=?, best_lab_time=?, total_time=?, pitstops=? WHERE id=?";
 

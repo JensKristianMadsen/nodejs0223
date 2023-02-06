@@ -16,8 +16,6 @@ async function getGokart(){
 
         const {gokart} = result;
 
-        console.log(gokart.best_lab_time, gokart.total_time);
-
         document.getElementById("id").value = gokart.id;
         document.getElementById("driver_input").value = gokart.driver;
         document.getElementById("age_input").value = gokart.age;
@@ -42,10 +40,10 @@ async function updateGokart(){
     const totalTime = document.getElementById("total_time_input").value;
     const pitstops = document.getElementById("pitstops_input").value;
 
-    const response = await fetch("/api/gokart", {
+    const response = await fetch("/api/gokart/"+id, {
         headers: {"content-type": "application/json"},
         method: "PUT",
-        body: JSON.stringify({id, driver, age, cc, bestLabTime, totalTime, pitstops})
+        body: JSON.stringify({driver, age, cc, bestLabTime, totalTime, pitstops})
     });
 
     const result = await response.json();
