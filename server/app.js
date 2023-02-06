@@ -13,10 +13,9 @@ app.use(express.static("../client/public"));
 app.use(session({
     secret: process.env.SECRET_SESSION,
     resave: false, 
-    
     saveUninitialized: true,
     cookie: {secure: false}
-}))
+}));
 
 app.use(userRouter);
 app.use(gokartRouter);
@@ -37,7 +36,6 @@ app.get("/", (req, res) => {
 });
 
 
-//
 app.get("/create_gokart", (req, res) => {
 
     if(!req.session.user){
@@ -45,7 +43,7 @@ app.get("/create_gokart", (req, res) => {
         return res.redirect("/login");
     }
 
-    res.sendFile(path.resolve("../client/public/createGokart.html"))
+    res.sendFile(path.resolve("../client/public/createGokart.html"));
 });
 
 app.get("/gokart_list", (req, res) => {
@@ -55,7 +53,7 @@ app.get("/gokart_list", (req, res) => {
         return res.redirect("/login");
     }
 
-    res.sendFile(path.resolve("../client/public/gokartList.html"))
+    res.sendFile(path.resolve("../client/public/gokartList.html"));
 });
 
 app.get("/update_gokart/:id", (req, res) => {
@@ -65,7 +63,7 @@ app.get("/update_gokart/:id", (req, res) => {
         return res.redirect("/login");
     }
 
-    res.sendFile(path.resolve("../client/public/updateGokart.html"))
+    res.sendFile(path.resolve("../client/public/updateGokart.html"));
 });
 
 

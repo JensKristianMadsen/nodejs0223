@@ -8,6 +8,7 @@ router.use(express.json());
 router.post("/api/gokart" , (req, res) => {
 
     if(!req.session.user){
+
         return res.status(500).send({message: "Failed: Must be logged in"})
     }
 
@@ -20,14 +21,14 @@ router.post("/api/gokart" , (req, res) => {
         if(error){
 
             return res.status(500).send({message: error.sqlMessage});
-    
         }
+
         res.status(201).send({message: "Successful creation"});
     });
 });
 
 // GET
-router.get("/api/gokart" , (req, res) => {
+router.get("/api/gokart", (req, res) => {
 
     if(!req.session.user){
 
@@ -36,18 +37,17 @@ router.get("/api/gokart" , (req, res) => {
 
     const sqlQuery = "SELECT * FROM gokarts";
 
-    db.query(sqlQuery,[], (error, result) => {
+    db.query(sqlQuery, [], (error, result) => {
 
         const gokarts = [...result];
 
         if(error){
 
             return res.status(500).send({message: error.sqlMessage});
-    
         }
        
         res.status(200).send({gokarts: gokarts});
-    })
+    });
 });
 
 // GET  by id
@@ -62,7 +62,7 @@ router.get("/api/one_gokart/:id", (req, res) => {
 
     const sqlQuery = "SELECT * FROM gokarts WHERE id=?";
 
-    db.query(sqlQuery,[id], (error, result) => {
+    db.query(sqlQuery, [id], (error, result) => {
 
         
 
@@ -74,8 +74,7 @@ router.get("/api/one_gokart/:id", (req, res) => {
         const gokart = result[0];
 
         res.status(200).send({gokart: gokart});
-    })
-
+    });
 });
 
 // Update 
@@ -83,23 +82,22 @@ router.put("/api/gokart", (req, res) => {
     
     if(!req.session.user){
 
-        return res.status(500).send({message: "Failed: Must be logged in"})
+        return res.status(500).send({message: "Failed: Must be logged in"});
     }
 
     const {id, driver, age, cc, bestLabTime, totalTime, pitstops} = req.body;
 
     const sqlQuery = "UPDATE gokarts SET  driver=?, age=?, cc=?, best_lab_time=?, total_time=?, pitstops=? WHERE id=?";
 
-    db.query(sqlQuery,[driver, age, cc, bestLabTime, totalTime, pitstops, id], (error, result) => {
+    db.query(sqlQuery, [driver, age, cc, bestLabTime, totalTime, pitstops, id], (error, result) => {
 
         if(error){
 
             return res.status(500).send({message: error.sqlMessage});
-    
         }
 
         res.status(200).send({message: "Successful update"});
-    })
+    });
 });
 
 // DELETE
@@ -114,16 +112,15 @@ router.delete("/api/gokart/:id", (req, res) => {
 
     const sqlQuery = "DELETE FROM gokarts WHERE id=?";
      
-    db.query(sqlQuery,[id], (error, result) => {
+    db.query(sqlQuery, [id], (error, result) => {
 
         if(error){
 
             return res.status(500).send({message: error.sqlMessage});
-    
         }
 
         res.status(200).send({message: "Successful delete"});
-    })
+    });
 });
 
 export default router;

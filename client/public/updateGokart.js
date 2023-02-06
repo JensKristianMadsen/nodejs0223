@@ -16,13 +16,13 @@ async function getGokart(){
 
         const {gokart} = result;
 
-        document.getElementById("id").value=gokart.id;
-        document.getElementById("driver_input").value=gokart.driver;
-        document.getElementById("age_input").value=gokart.age;
-        document.getElementById("cc_input").value=gokart.cc;
-        document.getElementById("best_lab_time_input").value=gokart.best_lab_time;
-        document.getElementById("total_time_input").value=gokart.total_time;
-        document.getElementById("pitstops_input").value=gokart.pitstops;
+        document.getElementById("id").value = gokart.id;
+        document.getElementById("driver_input").value = gokart.driver;
+        document.getElementById("age_input").value = gokart.age;
+        document.getElementById("cc_input").value = gokart.cc;
+        document.getElementById("best_lab_time_input").value = gokart.best_lab_time;
+        document.getElementById("total_time_input").value = gokart.total_time;
+        document.getElementById("pitstops_input").value = gokart.pitstops;
 
     }else{
 
@@ -45,7 +45,7 @@ async function updateGokart(){
         headers: {"content-type": "application/json"},
         method: "PUT",
         body: JSON.stringify({id, driver, age, cc, bestLabTime, totalTime, pitstops})
-    })
+    });
 
     const result = await response.json();
 
@@ -61,7 +61,7 @@ async function updateGokart(){
 
         alert(result.message);
 
-        window.location="/login";
+        window.location = "/login";
 
    }else{
 

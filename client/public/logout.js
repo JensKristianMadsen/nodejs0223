@@ -12,6 +12,6 @@ async function  logout(){
 
         alert(result.message);
 
-        window.location="/";
+        window.location = "/";
     }
 }

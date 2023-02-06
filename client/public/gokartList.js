@@ -13,7 +13,6 @@ async function seeAll(){
     if(response.status == 200){
 
         gokarts = result.gokarts;
-        //gokarts.reverse();
 
         const gokartTable = document.getElementById("gokart_table");
 
@@ -49,12 +48,13 @@ async function seeAll(){
 }
 
 function top5TotalTime(){
+    
     const top5List = [...gokarts];
 
     top5List.sort((a, b) => a.total_time - b.total_time)
 
     top5List.length = 5;
-    //top5List.reverse();
+    
     const gokartTable = document.getElementById("gokart_table");
 
     gokartTable.innerHTML = "";
@@ -77,7 +77,7 @@ function top5TotalTime(){
 }
 
 function searchDriverName(){
-    //Spread Operator
+    
     const gokartsCopy = [...gokarts];
 
     const searchInput = document.getElementById("search_input").value.toLowerCase();
@@ -144,4 +144,3 @@ socket.on("update_from_server", () => {
 
     seeAll();
 });
-

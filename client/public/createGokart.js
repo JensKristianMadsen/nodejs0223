@@ -28,7 +28,7 @@ async function createGokart(){
 
         alert(result.message);
 
-        window.location="/login";
+        window.location = "/login";
 
    }else{
     

@@ -25,7 +25,6 @@ router.post("/api/signup", async (req, res) => {
         if(error){
 
             return res.status(500).send({message: error.sqlMessage});
-    
         }
 
         res.status(201).send({message: "User is signed up"});
@@ -40,7 +39,6 @@ router.post("/api/login", (req, res) => {
     const sqlQuery = "SELECT * FROM users WHERE email = ?";
 
     db.query(sqlQuery, [email], async (error, result) => {
-
 
         if(error){
 
@@ -63,12 +61,16 @@ router.post("/api/login", (req, res) => {
         req.session.user = {id, username, email};
         
         res.status(200).send(req.session.user);
-    })
+    });
 });
 
 //GET //Logout
 router.get("/api/logout", (req, res) => {
-    if(!req.session.user) return res.status(400).send("Logout failed: Must be logged in");
+
+    if(!req.session.user){
+    
+        return res.status(400).send({message: "Logout failed: Must be logged in"});
+    }
 
     delete req.session.user;
 
