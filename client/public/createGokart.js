@@ -1,6 +1,7 @@
 const socket = io();
 
 async function createGokart(){
+    
     const driver = document.getElementById("driver_input").value;
     const age = document.getElementById("age_input").value;
     const cc = document.getElementById("cc_input").value;

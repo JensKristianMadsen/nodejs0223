@@ -1,5 +1,5 @@
 async function login(){
-    //const username = username_input.value;
+    
     const email = document.getElementById("email_input").value;
     const password = document.getElementById("password_input").value;
 

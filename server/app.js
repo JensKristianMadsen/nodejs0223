@@ -32,7 +32,12 @@ app.get("/login", (req, res) => {
 
 app.get("/", (req, res) => {
 
-    res.sendFile(path.resolve("../client/public/index.html"));
+    if(req.session.user){
+
+        return res.redirect("/gokart_list");
+    }
+
+    res.sendFile(path.resolve("../client/public/welcome.html"));
 });
 
 
@@ -75,11 +80,7 @@ const io = new Server(server);
 
 io.on('connection', (socket) => {
 
-    console.log("client connection");
-
     socket.on("update_from_client", () => {
-
-        console.log("got update from users");
 
         socket.broadcast.emit("update_from_server");
     });
@@ -92,18 +93,3 @@ server.listen(PORT, () => {
 
     console.log("The server is running on port:", PORT);
 });
-
-
-/*2 den der viker
-server.listen(3000, () => {
-
-    console.log('listening on *:3000');
-});
- 2*/
-
-/*
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log("The server is running on port:", PORT)
-});
-*/

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,138 +8,108 @@
     <link rel="stylesheet" href="css/createGokartStyle.css">
     <link rel="stylesheet" href="css/layoutStyle.css">
     <title>Create Gokart</title>
-</head>
-<body>
+  </head>
+  <body>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/createGokart.js"></script>
-    <script src="/logout.js" ></script>
- 
-
+    <script src="/logout.js"></script>
     <!--header-->
     <header>
       <h2>Welcome to Gokart (Create Gokart)</h2>
     </header>
-    
-
-
-<!--Navbar-->
-  
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-   
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/gokart_list">Home</a>
-        </li>
-    
-        <li class="nav-item">
-            <a class="nav-link" onclick="logout()" type="button" >Logout</a>
-        </li>
-   
-   
-      </ul>
-    </div>
-  </div>
-</nav>
-    
-<!--Navbar-->
-
-
-
-
-<section>
-  <!-- Grid container -->
-  <div class="container p-4">
-
-    
-    <!-- Section: Iframe -->
-    <section class="Create">
-      <div class="row d-flex justify-content-center">
-       
-        <div class="col-lg-6">
-
-          <div class="ratio ratio-16x9" ;>
-
-          
-            <table  class="create_table">
-                   
-     
-              <tr>  <td><h5>Create Gokart</h5></td>  </tr>
-
-
-                <tr>
-                    <td >Driver name</td>
-                    <!-- <td><input id="driver_input"></td> -->
-                    <td> <input id="driver_input" type="text" class="form-control" placeholder="Recipient's Driver name"  ></td>
-
-                 </tr>
-
-                 <tr>
-                    <td >Driver age</td>
-                
-                    <td> <input id="age_input" type="number" class="form-control" placeholder="Recipient's Driver age"  ></td>
-
-                 </tr>
-
-                 <tr>
-                    <td >DEngine cc</td>
-                
-                    <td> <input id="cc_input" type="number" class="form-control" placeholder="Recipient's Engine cc"  ></td>
-
-                 </tr>
-
-                 <tr>
-                    <td >Best lab time</td>
-                
-                    <td> <input id="best_lab_time_input" type="number" class="form-control" placeholder="Recipient's Best lab time"  ></td>
-
-                 </tr>
-
-                 <tr>
-                    <td >Total time</td>
-                
-                    <td> <input id="total_time_input" type="number" class="form-control" placeholder="Recipient's Total time"  ></td>
-
-                 </tr>
-                 <tr>
-                    <td >Pitstops</td>
-                
-                    <td> <input id="pitstops_input" type="number" class="form-control" placeholder="Recipient's Pitstops"  ></td>
-
-                 </tr>
-
-                 <tr colspan="2"> <!-- onclick kalder på en  function her signup-->
-                    <td > <button onclick="createGokart()" class="btn btn-primary">Create Gokart </button></td>
-                </tr>
-        
-            </table>
-
-        
-          </div>
-
-          
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/gokart_list">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="logout()" type="button">Logout</a>
+            </li>
+          </ul>
         </div>
       </div>
-       <!-- article: Text -->
-      <article>
-        <h1>GoKart Manager</h1>
-        <p>The race - devise and execute your strategy You control everything - from writing your driving time or keeping an eye on your progress,</p>
-        <p>keeping an overview from the pit strategy to the option to see the top 5 best times or your race driving time.</p>
-      </article>
-        <!-- article: Text -->
+    </nav>
+    <!--Navbar-->
+    <section>
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Iframe -->
+        <section class="Create">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6">
+              <div class="ratio ratio-16x9" ;>
+                <table class="create_table">
+                  <tr>
+                    <td>
+                      <h5>Create Gokart</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Driver name</td>
+                    <!-- <td><input id="driver_input"></td> -->
+                    <td>
+                      <input id="driver_input" type="text" class="form-control" placeholder="Driver name">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Driver age</td>
+                    <td>
+                      <input id="age_input" type="number" class="form-control" placeholder="Driver age">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Engine cc</td>
+                    <td>
+                      <input id="cc_input" type="number" class="form-control" placeholder="Engine cc">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Best lab time</td>
+                    <td>
+                      <input id="best_lab_time_input" type="number" class="form-control" placeholder="Best lab time">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Total time</td>
+                    <td>
+                      <input id="total_time_input" type="number" class="form-control" placeholder="Total time">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Pitstops</td>
+                    <td>
+                      <input id="pitstops_input" type="number" class="form-control" placeholder="Pitstops">
+                    </td>
+                  </tr>
+                  <tr colspan="2">
+                    <!-- onclick kalder på en  function her signup-->
+                    <td>
+                      <button onclick="createGokart()" class="btn btn-primary">Create Gokart </button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- article: Text -->
+          <article>
+            <h1>GoKart Manager</h1>
+            <p>The race - devise and execute your strategy You control everything - from writing your driving time or keeping an eye on your progress,</p>
+            <p>keeping an overview from the pit strategy to the option to see the top 5 best times or your race driving time.</p>
+          </article>
+          <!-- article: Text -->
+        </section>
+        <!-- Section: Iframe -->
+      </div>
     </section>
-    <!-- Section: Iframe -->
-  </div>
-</section>
-
-<footer>
-  <p>Footer</p>
-</footer>
-
-</body>
+    <footer>
+      <p>Footer</p>
+    </footer>
+  </body>
 </html>

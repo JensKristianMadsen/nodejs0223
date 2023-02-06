@@ -1,37 +1,32 @@
-
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  /* Style the header */
-  header {
-    background-color: #666;
-    padding: 27px;
-    text-align: center;
-    font-size: 25px;
-    color: white;
-  }
-  
-
-  table {
-    float: left;
-    width: 30%;
-    height: 300px; /* only for demonstration, should be removed */
-    background: #f4f4f4;
-    padding: 20px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-  
-  
-  /* Style the footer */
-  footer {
-    background-color: #777;
-    padding: 1px;
-    text-align: center;
-    color: white;
-  }
-  
-  .p-4 {
-    padding: 0.5rem !important;
-  }
-  
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 27px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+table {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 1px;
+  text-align: center;
+  color: white;
+}
+
+.p-4 {
+  padding: 0.5rem !important;
+}

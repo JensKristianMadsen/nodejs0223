@@ -140,7 +140,7 @@ async function deleteGokart(id){
 
 socket.on("update_from_server", () => {
 
-    alert("Update from other user");
+    alert("There was an update to the gokart list");
 
     seeAll();
 });
