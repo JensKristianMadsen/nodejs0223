@@ -37,11 +37,14 @@ async function seeAll(){
         });
 
     }else if(result.message == "Failed: Must be logged in"){
+
         alert(result.message);
+
         window.location="/login";
+
    }else{
+
        alert(result.message);
-       
    }
 }
 
@@ -49,9 +52,9 @@ function top5TotalTime(){
     const top5List = [...gokarts];
 
     top5List.sort((a, b) => a.total_time - b.total_time)
+
     top5List.length = 5;
     //top5List.reverse();
-
     const gokartTable = document.getElementById("gokart_table");
 
     gokartTable.innerHTML = "";
@@ -116,21 +119,29 @@ async function deleteGokart(id){
     const result = await response.json();
 
     if(response.status == 200){
-        alert(result.message);
-        socket.emit("update_from_client");
-        seeAll();
-    }else if(result.message == "Failed: Must be logged in"){
-        alert(result.message);
-        window.location="/login";
-   }else{
-       alert(result.message);
-       
-   }
 
+        alert(result.message);
+
+        socket.emit("update_from_client");
+
+        seeAll();
+
+    }else if(result.message == "Failed: Must be logged in"){
+
+        alert(result.message);
+
+        window.location="/login";
+
+   }else{
+
+       alert(result.message);
+   }
 }
 
 socket.on("update_from_server", () => {
+
     alert("Update from other user");
+
     seeAll();
 });
 

@@ -16,9 +16,6 @@ async function createGokart(){
 
     const result = await response.json();
 
-   
-
-    
     if(response.status == 201){
 
         alert(result.message);
@@ -28,11 +25,13 @@ async function createGokart(){
         window.location = "/gokart_list";
 
     }else if(result.message == "Failed: Must be logged in"){
-        alert(result.message);
-        window.location="/login";
-   }else{
-       alert(result.message);
-       
-   }
 
+        alert(result.message);
+
+        window.location="/login";
+
+   }else{
+    
+       alert(result.message);
+   }
 }

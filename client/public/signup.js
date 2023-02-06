@@ -6,6 +6,7 @@ async function signup(){
     const confirmPassword = document.getElementById("confirm_password_input").value;
 
     if(password != confirmPassword){
+
         return alert("Passwords donsn't match");
     }
 
@@ -25,5 +26,4 @@ async function signup(){
         
         window.location = "/login";
     }
-  
 }

@@ -5,7 +5,6 @@ const router = express.Router();
 router.use(express.json());
 
 // POST
-
 router.post("/api/gokart" , (req, res) => {
 
     if(!req.session.user){
@@ -27,10 +26,11 @@ router.post("/api/gokart" , (req, res) => {
     });
 });
 
-
+// GET
 router.get("/api/gokart" , (req, res) => {
 
     if(!req.session.user){
+
         return res.status(500).send({message: "Failed: Must be logged in"})
     }
 
@@ -45,15 +45,16 @@ router.get("/api/gokart" , (req, res) => {
             return res.status(500).send({message: error.sqlMessage});
     
         }
-       // res.status(200).send({gokarts});
+       
         res.status(200).send({gokarts: gokarts});
     })
 });
 
-// Get one gokart by id
+// GET  by id
 router.get("/api/one_gokart/:id", (req, res) => {
 
     if(!req.session.user){
+        
         return res.status(500).send({message: "Failed: Must be logged in"})
     }
 
@@ -76,11 +77,12 @@ router.get("/api/one_gokart/:id", (req, res) => {
     })
 
 });
-// Update gokart
 
+// Update 
 router.put("/api/gokart", (req, res) => {
     
     if(!req.session.user){
+
         return res.status(500).send({message: "Failed: Must be logged in"})
     }
 
@@ -95,15 +97,16 @@ router.put("/api/gokart", (req, res) => {
             return res.status(500).send({message: error.sqlMessage});
     
         }
-        res.status(200).send({message: "Successful update"});
 
+        res.status(200).send({message: "Successful update"});
     })
 });
 
-
+// DELETE
 router.delete("/api/gokart/:id", (req, res) => {
 
     if(!req.session.user){
+
         return res.status(500).send({message: "Failed: Must be logged in"})
     }
 
@@ -118,6 +121,7 @@ router.delete("/api/gokart/:id", (req, res) => {
             return res.status(500).send({message: error.sqlMessage});
     
         }
+
         res.status(200).send({message: "Successful delete"});
     })
 });

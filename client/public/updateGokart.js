@@ -5,13 +5,13 @@ getGokart();
 async function getGokart(){
 
     const path = window.location.pathname;
+
     const id = path.split("/").slice(-1)[0];
 
     const response = await fetch("/api/one_gokart/"+id);
 
     const result = await response.json();
 
-     
     if(response.status == 200){
 
         const {gokart} = result;
@@ -23,13 +23,12 @@ async function getGokart(){
         document.getElementById("best_lab_time_input").value=gokart.best_lab_time;
         document.getElementById("total_time_input").value=gokart.total_time;
         document.getElementById("pitstops_input").value=gokart.pitstops;
+
     }else{
+
         alert(result.message);
     }
-
-
 }
-
 
 async function updateGokart(){
 
@@ -51,16 +50,21 @@ async function updateGokart(){
     const result = await response.json();
 
     if(response.status == 200){
+
         alert(result.message);
+
         socket.emit("update_from_client");
+
         window.location = "/gokart_list";
         
     }else if(result.message == "Failed: Must be logged in"){
-        alert(result.message);
-        window.location="/login";
-   }else{
-       alert(result.message);
-       
-   }
 
+        alert(result.message);
+
+        window.location="/login";
+
+   }else{
+
+       alert(result.message);
+   }
 }

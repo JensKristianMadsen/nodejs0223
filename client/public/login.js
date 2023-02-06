@@ -1,6 +1,5 @@
 async function login(){
     //const username = username_input.value;
-
     const email = document.getElementById("email_input").value;
     const password = document.getElementById("password_input").value;
 
@@ -13,9 +12,11 @@ async function login(){
     const result = await response.json();
 
     if(result.message){
+
         alert(result.message)
+
     }else{
+
         window.location="/gokart_list";
     }
-    
 }

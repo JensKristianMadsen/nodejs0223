@@ -6,11 +6,7 @@ import gokartRouter from "./routers/gokartRouter.js";
 import  {Server}  from "socket.io";
 import http from "http";
 
-
-
 const app = express();
-
-
 
 app.use(express.static("../client/public"));
 
@@ -28,44 +24,47 @@ app.use(gokartRouter);
 app.get("/signup", (req, res) => {
 
     res.sendFile(path.resolve("../client/public/signup.html"));
-
 });
 
 app.get("/login", (req, res) => {
 
     res.sendFile(path.resolve("../client/public/login.html"));
-
 });
 
 app.get("/", (req, res) => {
+
     res.sendFile(path.resolve("../client/public/index.html"));
 });
 
-//Gokart
 
+//
 app.get("/create_gokart", (req, res) => {
 
     if(!req.session.user){
+
         return res.redirect("/login");
     }
 
     res.sendFile(path.resolve("../client/public/createGokart.html"))
-
 });
 
 app.get("/gokart_list", (req, res) => {
 
     if(!req.session.user){
+
         return res.redirect("/login");
     }
+
     res.sendFile(path.resolve("../client/public/gokartList.html"))
 });
 
 app.get("/update_gokart/:id", (req, res) => {
 
     if(!req.session.user){
+
         return res.redirect("/login");
     }
+
     res.sendFile(path.resolve("../client/public/updateGokart.html"))
 });
 
@@ -77,17 +76,32 @@ const io = new Server(server);
 
 
 io.on('connection', (socket) => {
+
     console.log("client connection");
+
     socket.on("update_from_client", () => {
+
         console.log("got update from users");
+
         socket.broadcast.emit("update_from_server");
     });
 });
 
-server.listen(3000, () => {
-    console.log('listening on *:3000');
+
+const PORT = process.env.PORT || 8080;
+
+server.listen(PORT, () => {
+
+    console.log("The server is running on port:", PORT);
 });
 
+
+/*2 den der viker
+server.listen(3000, () => {
+
+    console.log('listening on *:3000');
+});
+ 2*/
 
 /*
 const PORT = process.env.PORT || 8080;
